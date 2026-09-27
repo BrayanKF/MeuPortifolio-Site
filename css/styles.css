@@ -303,7 +303,7 @@ nav a:hover {
 /* ─── HERO — FULL SCREEN ─── */
 #hero {
   padding-block: 0;
-  padding-top: clamp(100px, 16vw, 180px);
+  padding-top: clamp(100px, 16vw, 180px); /* mobile reduced via media query */
   padding-bottom: clamp(60px, 10vw, 120px);
   min-height: 100vh;
   display: flex;
@@ -1320,7 +1320,11 @@ footer {
 
 /* ─── MOBILE NAV (≤768px) ─── */
 @media (max-width: 767px) {
+  #hero {
+    padding-top: 80px !important;
+  }
   nav ul {
+    display: none;
     display: none;
     flex-direction: column;
     position: fixed;
