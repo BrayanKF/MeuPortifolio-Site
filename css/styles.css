@@ -1285,12 +1285,19 @@ footer {
     display: flex;
   }
 
-  .hero-visual {
-    display: none;
+    .hero-visual {
+    min-height: auto;
+  }
+
+  .hero-img-wrap {
+    max-width: 260px;
+    margin-inline: auto;
   }
 
   .about-img-stack {
-    display: none;
+    max-width: 280px;
+    margin-inline: auto;
+    margin-bottom: 24px;
   }
 
   .proj-card.featured {
