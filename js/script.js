@@ -113,8 +113,27 @@ function applyLang() {
     const k = el.getAttribute('data-i18n');
     if (k && i18n[currentLang] && i18n[currentLang][k]) el.textContent = i18n[currentLang][k];
   });
+
+  // Update language toggle active state
+  const langToggle = document.getElementById('lang-toggle');
+  if (langToggle) {
+    const ptOption = langToggle.querySelector('[data-lang="pt"]');
+    const enOption = langToggle.querySelector('[data-lang="en"]');
+    if (ptOption) {
+      ptOption.classList.toggle('active', currentLang === 'pt');
+      ptOption.setAttribute('aria-current', currentLang === 'pt' ? 'true' : 'false');
+    }
+    if (enOption) {
+      enOption.classList.toggle('active', currentLang === 'en');
+      enOption.setAttribute('aria-current', currentLang === 'en' ? 'true' : 'false');
+    }
+  }
+
+  // Update old-style label if exists (for backward compatibility, but we removed it)
   const label = document.getElementById('lang-label');
-  if (label) label.textContent = currentLang === 'pt' ? 'EN' : 'PT';
+  if (label) {
+    label.textContent = currentLang === 'pt' ? 'EN' : 'PT';
+  }
 }
 
 function saveLang() { try { localStorage.setItem('kaell_portfolio_lang', currentLang); } catch (e) {} }
