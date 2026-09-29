@@ -9,7 +9,6 @@
 
   /* Backgrounds — Game of Thrones dark palette */
   --bg:           #0a0e17;
-  --bg:           #0a0e17;
   --bg-mid:       #111827;
   --surface:      #151b2e;
   --surface-hi:   #1c2440;
@@ -63,7 +62,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: clamp(15px, 2.5vw, 17px);
   line-height: 1.7;
   padding-inline: var(--side);
   overflow-x: hidden;
@@ -184,6 +183,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: visible;
 }
 
 .nav-logo {
@@ -238,10 +238,16 @@ nav a:hover {
     font-family: var(--font-display);
     font-weight: 700;
     font-size: 0.875rem;
-    padding: 8px 16px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    gap: 4px;
     border: 1px solid var(--border);
     border-radius: 20px;
     transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .lang-btn:hover {
@@ -251,9 +257,10 @@ nav a:hover {
   }
 
   .lang-option {
-    padding: 6px 12px;
+    padding: 6px 10px;
     border-radius: 20px;
     transition: all 0.3s ease;
+    white-space: nowrap;
   }
 
   .lang-option.active {
@@ -278,19 +285,34 @@ nav a:hover {
       width: auto;
       justify-content: flex-end;
       margin: 0;
+      flex-shrink: 0;
+      overflow: visible;
+      gap: 8px;
     }
     #lang-toggle {
       display: inline-flex !important;
       margin: 0;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding: 6px 8px;
+      font-size: 0.75rem;
+    }
+    .lang-btn {
+      padding: 6px 8px;
+      font-size: 0.75rem;
+    }
+    .lang-option {
+      padding: 4px 6px;
     }
   }
 
   .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: flex-start;
-}
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+    flex-shrink: 0;
+  }
 
 .nav-toggle {
   display: none;
