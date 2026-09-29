@@ -270,18 +270,29 @@ nav a:hover {
     color: var(--text-mid);
   }
 
-  /* Ensure language toggle is always visible on mobile */
   @media (max-width: 767px) {
-    #nav-menu {
-      display: none !important;
+    .nav-toggle {
+      display: flex;
+    }
+    .nav-right {
+      width: auto;
+      justify-content: flex-end;
+      margin: 0;
     }
     #lang-toggle {
       display: inline-flex !important;
-      margin-left: 12px;
+      margin: 0;
     }
   }
 
-  .nav-toggle {
+  .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.nav-toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
@@ -1324,7 +1335,6 @@ footer {
     padding-top: 80px !important;
   }
   nav ul {
-    display: none;
     display: none;
     flex-direction: column;
     position: fixed;
